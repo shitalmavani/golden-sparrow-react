@@ -1,0 +1,7 @@
+.google-btn {
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    align-self: center;
+    margin-top: 5vh;
+}

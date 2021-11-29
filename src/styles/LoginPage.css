@@ -1,0 +1,44 @@
+.login-page {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    background: #fff5c8;
+}
+
+.logo-panel {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    width: 50%;
+}
+
+.logo-gold {
+    height: 100vh;
+}
+
+.login-panel {
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-header {
+    justify-content: flex-end;
+    margin-top: 25vh;
+    margin-right: 1.5em;
+}
+
+.title {
+    color: #FFD700;
+    font-size: 3em;
+    margin: auto;
+    /* background: #ffc107; */
+    padding: 0.5em;
+    border-radius: 0.35em;
+
+}
