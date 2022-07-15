@@ -6,10 +6,13 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+
 
 const customStyles = makeStyles((theme) => ({
     drawer: {
-        width: '20%',
+        width: '100%',
+        padding: '1em'
     },
     sectionHeader: {
         margin: '1em',
@@ -37,10 +40,16 @@ const Nav = () => {
             </Typography>
             <Divider />
             <List>
-                <ListItem button key='Background'>
-                    {/* <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon> */}
-                <ListItemText primary='Background' />
-                </ListItem>
+                <Link to='/settings/background'>
+                    <ListItem button key='Background'>
+                        <ListItemText primary='Background' />
+                    </ListItem>
+                </Link>
+                <Link to='/settings/stats'>
+                    <ListItem button key='Stats'>
+                        <ListItemText primary='Stats' />
+                    </ListItem>
+                </Link>
             </List>
         </Drawer>
 )};

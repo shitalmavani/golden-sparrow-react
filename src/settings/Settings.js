@@ -5,7 +5,9 @@ import Nav from './Nav';
 import { createTheme, ThemeProvider, makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router-dom';
 import logo from '../logos/gs-final.svg';
-import './Settings.css'
+import './Settings.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Background from './Background';
 
 const theme = createTheme({
     palette: {
@@ -39,9 +41,17 @@ const customStyles = makeStyles((theme) => ({
         padding: theme.spacing(3),
     },
     settingsArea: {
-        positions: 'absolute',
         height: 'auto',
-        width: '100%',
+        display: 'flex'
+    },
+    settingsNav: {
+        display: 'flex',
+        height: 'auto',
+        width: '12%',
+    },
+    settingsDisplay: {
+        height: 'auto',
+        flexGrow: 1
     },
     closeBtn: {
         color: 'white',
@@ -76,8 +86,21 @@ const Settings = () => {
                     </Toolbar>
                 </AppBar>
                 <div className={ classes.toolbar } />
-                <div className={classes.settingsArea}>
-                    <Nav />
+                <div className={ classes.settingsArea }>
+                    <div className={ classes.settingsNav }>
+                        <Nav />
+                    </div>
+                    <div className={ classes.settingsDisplay }>
+                        <BrowserRouter forceRefresh={true}>
+                            <Switch>
+                                <Route exact path="/settings/background">
+                                    <Background />
+                                </Route>
+                                <Route path="/settings/stats">
+                                </Route>
+                            </Switch>
+                        </BrowserRouter>
+                    </div>
                 </div>
             </ThemeProvider>
         </div>

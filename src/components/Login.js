@@ -17,19 +17,37 @@ function Login({ setToken }) {
           .then(function (response) {
             localStorage.setItem('gs-token', response.data.access_token);
             setToken(response.data.access_token);
-        })
+        });
     }
 
     const onFailure = (res) => {
         console.log('[Login Failed] result:', res);
     }
 
+    const testSuccess = () => {
+        axios.get(ENDPOINT + "/test_user_login")
+          .then(function (response) {
+            localStorage.setItem('gs-token', response.data.access_token);
+            setToken(response.data.access_token);
+        });
+    }
+
     return (
+        // <GoogleLogin
+        //     clientId={clientId}
+        //     buttonText="Login with Google"
+        //     onSuccess={onSuccess}
+        //     onFailure={onFailure}
+        //     cookiePolicy={'single_host_origin'}
+        //     isSignedIn={false}
+        //     className='google-btn'
+        // />
+
         <GoogleLogin
             clientId={clientId}
             buttonText="Login with Google"
-            onSuccess={onSuccess}
-            onFailure={onFailure}
+            onSuccess={testSuccess}
+            onFailure={testSuccess}
             cookiePolicy={'single_host_origin'}
             isSignedIn={false}
             className='google-btn'
